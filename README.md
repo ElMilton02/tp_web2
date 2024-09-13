@@ -1,4 +1,4 @@
-![imagen de la base de datos](diagrama_db.png)
+![imagen de la base de datos](diagrama_bd.png)
 # tp_web2
 
 
