@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2024 a las 22:08:51
+-- Tiempo de generación: 12-10-2024 a las 23:15:46
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -20,6 +20,49 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tpe_web2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `destinos`
+--
+
+CREATE TABLE `destinos` (
+  `destino` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL,
+  `imagen_destino` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `destinos`
+--
+
+INSERT INTO `destinos` (`destino`, `id`, `imagen_destino`) VALUES
+('roma', 1, 'https://wayfarer.travel/wp-content/uploads/2018/06/Colloseum-Rome-iStock-622806180-EDITED.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `nombre` varchar(40) NOT NULL,
+  `contraseña` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL,
+  `rol` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`nombre`, `contraseña`, `id`, `rol`) VALUES
+('webadmin', 'admin', 1, 1),
+('juan', '1234', 2, 0),
+('pablo', '3030', 3, 0),
+('pepe', '2345', 4, 0),
+('pepe', '2345', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -48,6 +91,18 @@ INSERT INTO `viajes` (`id`, `fecha`, `hora`, `id_destinos`, `id_usuarios`) VALUE
 --
 
 --
+-- Indices de la tabla `destinos`
+--
+ALTER TABLE `destinos`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `viajes`
 --
 ALTER TABLE `viajes`
@@ -58,6 +113,18 @@ ALTER TABLE `viajes`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `destinos`
+--
+ALTER TABLE `destinos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `viajes`
