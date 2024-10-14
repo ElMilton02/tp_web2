@@ -1,6 +1,12 @@
 <?php
 
-class CategorieController
+require_once './apps/models/ViajeModel.php';
+require_once './apps/views/ViajeView.php';
+require_once './apps/helpers/AuthHelper.php';
+require_once './config.php';
+require_once './apps/controllers/ErrorController.php';
+
+class ViajeController
 {
     private $model;
     private $view;
@@ -31,13 +37,13 @@ class CategorieController
         $hora_viaje = $_GET['hora_viaje'];
         $id_destino = $destinoId;
 
-        if (empty($id_Categorie) || empty($fecha_viaje) || empty($hora_viaje)) {
+        if (empty($id_destino) || empty($fecha_viaje) || empty($hora_viaje)) {
 
 
             var_dump($id_destino, $fecha_viaje, $hora_viaje);
         } else {
             $this->model->insertViaje($id_destino, $fecha_viaje, $hora_viaje);
-            header('Location: ' . BASE_URL . 'ropaByCategoria/' . $id_destino);
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $id_destino);
         }
     }
 
@@ -54,7 +60,7 @@ class CategorieController
         if (empty($newFecha) || empty($newHora )) {
         } else {
             $this->model->modifyViaje($idViajes, $newFecha, $newHora );
-            header('Location: ' . BASE_URL . 'destinos');
+            header('Location: ' . BASE_URL . 'viajes');
         }
     }
 }
