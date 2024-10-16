@@ -1,7 +1,7 @@
 <?php
 
 
-class CategoriesController
+class DestinoController
 {
 
     private $model;
@@ -50,7 +50,7 @@ class CategoriesController
         $destino = $_GET['destino'];
         if (empty($destino)) {
             $controller = new ErrorController();
-            $controller->showErrorNonDataCat('Datos Vacios',  $this->model);
+            $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
         } else {
             $newDestino = $this->model->insertDestino($destino);
             if ($newDestino) {
@@ -77,7 +77,7 @@ class CategoriesController
         if (empty($destino) || empty($img)) {
 
             $controller = new ErrorController();
-            $controller->showErrorNonDataCat('Datos Vacios',  $this->model);
+            $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
         } else {
             $this->model->modifyDestino($destino, $id, $img);
             header('Location: ' . BASE_URL . 'destinos');
