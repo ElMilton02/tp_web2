@@ -1,0 +1,50 @@
+<?php require_once './templates/header.phtml';
+
+$hrefId = '';
+
+?>
+
+<h4>Listado de ropa por categoria: </h4>
+<table class="table table-striped ">
+    <thead>
+        <tr>
+
+            <th class="col-sm-4">Prenda</th>
+
+            <th class="col-sm-4">Precio</th>
+
+            <?php if ($rol === 1) {
+            ?>
+                <th class="col-sm-4">Acciones</th>
+            <?php } ?>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($listClothes as $Clothes) {
+            $hrefId = $Clothes->id_ropa;
+
+        ?>
+            <tr class="justify-content-evently">
+                <td><?php echo $Clothes->nombre_ropa ?></td>
+                <td><?php echo $Clothes->precio_ropa ?></td>
+                <?php if ($rol === 1) {
+                ?>
+                    <td class = "td-btn">
+                        <a href="editarRopa/<?= $hrefId  ?>" type="button" class='btn btn-primary btn-sm btn-edit'>Editar</a>
+
+                        <a href="eliminarRopa/<?= $categorieId ?>/<?= $Clothes->id_ropa ?>" type="button" class="btn btn-danger btn-sm">Eliminar</a>
+                    </td>
+                <?php } ?>
+            </tr>
+        <?php } ?>
+
+    </tbody>
+</table>
+
+<?php
+if ($rol === 1) {
+    require_once './templates/addClothes.phtml';
+}
+?>
+
+<?php require_once './templates/footer.phtml'; ?>

@@ -22,7 +22,7 @@ class Model
       // Si no hay tablas, crearlas
         $sql = <<<SQL
       
-                    SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+                SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
                 START TRANSACTION;
                 SET time_zone = "+00:00";
 
