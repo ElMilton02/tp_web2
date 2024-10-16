@@ -1,0 +1,22 @@
+<?php require_once './templates/header.phtml';
+?>
+<form action="actualizarRopa /<?= $idClothes   ?>" method="POST" class="form-categoria">
+
+    <div>
+        <label for="editarRopa/<?= $id  ?>">Prenda</label>
+        <input class="form-control form-control-sm" name="nuevoNombre" type="text" placeholder="NombreRopa">
+
+        <label for="editarRopa/<?= $id  ?>">Autor</label>
+        <input class="form-control form-control-sm" name="nuevoPrecio" type="text" placeholder="Autor">
+
+    </div>
+    <?php if (isset($error)) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error ?>
+        </div>
+    <?php endif; ?>
+    <button type="submit" class="btn btn-secondary">Actualizar Prenda</button>
+</form>
+
+
+<?php require_once './templates/footer.phtml'; ?>
