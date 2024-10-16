@@ -1,0 +1,17 @@
+<form action="agregarRopa/<?= $categorieId ?>" method="GET" class="form-categoria">
+    <div>
+        <label for="prenda">Tipo de prenda</label>
+        <input class="form-control form-control-sm" name="nombre_ropa" type="text" placeholder="Nombre">
+        <br>
+        <label for="autor">Precio</label>
+        <input class="form-control form-control-sm" name="precio_ropa" type="text" placeholder="precio">
+       
+    </div>
+    <button type="submit" class="btn btn-secondary">Agregar prenda</button>
+    <?php
+    if (isset($error)) : ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $error ?>
+        </div>
+    <?php endif; ?>
+</form>
