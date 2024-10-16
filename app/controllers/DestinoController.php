@@ -1,5 +1,10 @@
 <?php
 
+require_once './app/models/DestinoModel.php';
+require_once './app/views/DestinoView.php';
+require_once './app/helpers/AuthHelper.php';
+require_once './config.php';
+require_once './app/controllers/ErrorController.php';
 
 class DestinoController
 {
