@@ -9,9 +9,9 @@ $hrefId = '';
     <thead>
         <tr>
 
-            <th class="col-sm-4">Prenda</th>
+            <th class="col-sm-4">Fecha</th>
 
-            <th class="col-sm-4">Precio</th>
+            <th class="col-sm-4">Hora</th>
 
             <?php if ($rol === 1) {
             ?>
@@ -20,13 +20,13 @@ $hrefId = '';
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($listClothes as $Clothes) {
-            $hrefId = $Clothes->id_ropa;
+        <?php foreach ($listViajes as $Viajes) {
+            $hrefId = $Viajes->id;
 
         ?>
             <tr class="justify-content-evently">
-                <td><?php echo $Clothes->nombre_ropa ?></td>
-                <td><?php echo $Clothes->precio_ropa ?></td>
+                <td><?php echo $Viajes->fecha ?></td>
+                <td><?php echo $Viajes->hora ?></td>
                 <?php if ($rol === 1) {
                 ?>
                     <td class = "td-btn">

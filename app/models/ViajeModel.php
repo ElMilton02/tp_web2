@@ -8,7 +8,7 @@ class viajeModel extends Model
 
     function getViajesByDestino($href)
     {
-        $query = $this->db->prepare('SELECT * FROM viajes WHERE id_destino = ?');
+        $query = $this->db->prepare('SELECT * FROM viajes WHERE id_destinos = ?');
         $query->execute([$href]);
 
         $viajes = $query->fetchAll(PDO::FETCH_OBJ);
@@ -18,7 +18,7 @@ class viajeModel extends Model
 
     function deleteViaje($idViaje)
     {
-        $query = $this->db->prepare('DELETE FROM viajes WHERE id_viaje = ?');
+        $query = $this->db->prepare('DELETE FROM viajes WHERE id = ?');
         $query->execute([$idViaje]);
     }
 

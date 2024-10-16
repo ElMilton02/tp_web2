@@ -62,8 +62,8 @@ class Model
                 --
 
                 CREATE TABLE `usuarios` (
-                `nombre` varchar(40) NOT NULL,
-                `contraseña` varchar(40) NOT NULL,
+                `nombre_usuario` varchar(40) NOT NULL,
+                `clave_usuario` varchar(40) NOT NULL,
                 `id` int(11) NOT NULL,
                 `rol` int(11) NOT NULL
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -72,7 +72,7 @@ class Model
                 -- Volcado de datos para la tabla `usuarios`
                 --
 
-                INSERT INTO `usuarios` (`nombre`, `contraseña`, `id`, `rol`) VALUES
+                INSERT INTO `usuarios` (`nombre_usuario`, `clave_usuario`, `id`, `rol`) VALUES
                 ('webadmin', 'admin', 1, 1),
                 ('juan', '1234', 2, 0),
                 ('pablo', '3030', 3, 0),
