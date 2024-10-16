@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-10-2024 a las 23:15:46
+-- Tiempo de generación: 17-10-2024 a las 01:01:25
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tpe_web2`
+-- Base de datos: `via_tandil`
 --
 
 -- --------------------------------------------------------
@@ -47,8 +47,8 @@ INSERT INTO `destinos` (`destino`, `id`, `imagen_destino`) VALUES
 --
 
 CREATE TABLE `usuarios` (
-  `nombre` varchar(40) NOT NULL,
-  `contraseña` varchar(40) NOT NULL,
+  `nombre_usuario` varchar(30) DEFAULT NULL,
+  `clave_usuario` varchar(40) DEFAULT NULL,
   `id` int(11) NOT NULL,
   `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -57,12 +57,15 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`nombre`, `contraseña`, `id`, `rol`) VALUES
+INSERT INTO `usuarios` (`nombre_usuario`, `clave_usuario`, `id`, `rol`) VALUES
 ('webadmin', 'admin', 1, 1),
 ('juan', '1234', 2, 0),
 ('pablo', '3030', 3, 0),
 ('pepe', '2345', 4, 0),
-('pepe', '2345', 5, 0);
+('pepe', '2345', 5, 0),
+('tongas', '$2y$10$dAnsVwsNFxQPVessx3yVCueSqdbcl6leo', 6, 0),
+('Gaston', '$2y$10$YG4yF3daQK3KI0q.KpMEi.fSB8M1ulNwh', 7, 0),
+('hola', '$2y$10$sF6CfWtwBvXRGJ9Z1csFmed6bg6kswnCp', 8, 0);
 
 -- --------------------------------------------------------
 
@@ -124,7 +127,7 @@ ALTER TABLE `destinos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `viajes`
