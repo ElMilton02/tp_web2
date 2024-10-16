@@ -1,10 +1,10 @@
 <?php
 
-require_once './apps/models/ViajeModel.php';
-require_once './apps/views/ViajeView.php';
-require_once './apps/helpers/AuthHelper.php';
+require_once './app/models/ViajeModel.php';
+require_once './app/views/ViajeView.php';
+require_once './app/helpers/AuthHelper.php';
 require_once './config.php';
-require_once './apps/controllers/ErrorController.php';
+require_once './app/controllers/ErrorController.php';
 
 class ViajeController
 {

@@ -1,9 +1,9 @@
 <?php
 
-require_once './apps/models/LoginModel.php';
-require_once './apps/views/LoginView.php';
-require_once './apps/helpers/AuthHelper.php';
-require_once './apps/controllers/ErrorController.php';
+require_once './app/models/LoginModel.php';
+require_once './app/views/LoginView.php';
+require_once './app/helpers/AuthHelper.php';
+require_once './app/controllers/ErrorController.php';
 
 //define la clase AuthController
 class AuthController
