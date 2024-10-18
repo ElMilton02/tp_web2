@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-10-2024 a las 01:01:25
+-- Tiempo de generación: 19-10-2024 a las 00:52:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,7 +38,11 @@ CREATE TABLE `destinos` (
 --
 
 INSERT INTO `destinos` (`destino`, `id`, `imagen_destino`) VALUES
-('roma', 1, 'https://wayfarer.travel/wp-content/uploads/2018/06/Colloseum-Rome-iStock-622806180-EDITED.jpg');
+('roma', 1, 'https://wayfarer.travel/wp-content/uploads/2018/06/Colloseum-Rome-iStock-622806180-EDITED.jpg'),
+('Londres', 3, 'https://th.bing.com/th/id/OIP.J2QErjnq41Jqrs1TuSoYRQHaD4?rs=1&pid=ImgDetMain'),
+('Nueva York', 5, 'https://th.bing.com/th/id/OIP.ugAMks5e-IS9pWp2SKNe3wHaFj?rs=1&pid=ImgDetMain'),
+('Madrid', 7, 'https://th.bing.com/th/id/R.eafa92f0f4c4230dcb053bc474c78d17?rik=W2WZ4YNaO6DHAQ&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f48%2f51%2fQZgadO.jpg&ehk=mTlbhFs%2fQE4JiKm1%2bWwmqqDul8d4gbFxQGi87WasrFM%3d&risl=&pid=ImgRaw&r=0'),
+('Paris', 8, 'https://th.bing.com/th/id/OIP.gs0_A6eMe8C3WuNBQ1c4IQHaFC?rs=1&pid=ImgDetMain');
 
 -- --------------------------------------------------------
 
@@ -48,7 +52,7 @@ INSERT INTO `destinos` (`destino`, `id`, `imagen_destino`) VALUES
 
 CREATE TABLE `usuarios` (
   `nombre_usuario` varchar(30) DEFAULT NULL,
-  `clave_usuario` varchar(40) DEFAULT NULL,
+  `clave_usuario` varchar(255) NOT NULL,
   `id` int(11) NOT NULL,
   `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -58,14 +62,10 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`nombre_usuario`, `clave_usuario`, `id`, `rol`) VALUES
-('webadmin', 'admin', 1, 1),
-('juan', '1234', 2, 0),
-('pablo', '3030', 3, 0),
-('pepe', '2345', 4, 0),
-('pepe', '2345', 5, 0),
-('tongas', '$2y$10$dAnsVwsNFxQPVessx3yVCueSqdbcl6leo', 6, 0),
-('Gaston', '$2y$10$YG4yF3daQK3KI0q.KpMEi.fSB8M1ulNwh', 7, 0),
-('hola', '$2y$10$sF6CfWtwBvXRGJ9Z1csFmed6bg6kswnCp', 8, 0);
+('webadmin', '$2y$10$EpcT77aEVovD9C5nEP7sB.HHM8ak3KsC2KztMDXDtOTBo9sk3FWd6', 9, 1),
+('pepe', '$2y$10$.XXGd5n4OcIjyADQShm7YuXG82WKT2w0SmwZHLhazFsAzUOy.RnW6', 10, 0),
+('pedro', '$2y$10$WHGd8KUlZIGk6QxpRm.5UOp9mlKLGy7R7e74LHXhRe62ix3d2EpZ6', 11, 0),
+('saul', '$2y$10$H/p7Oj.55BWzxYncJ0e0puJ9.cfhCbztWeoowuWZaN9n..oQWPCdq', 12, 0);
 
 -- --------------------------------------------------------
 
@@ -86,8 +86,21 @@ CREATE TABLE `viajes` (
 --
 
 INSERT INTO `viajes` (`id`, `fecha`, `hora`, `id_destinos`, `id_usuarios`) VALUES
-(18, '2024-09-16', '12:55:00.0000', 1, 2),
-(19, '2025-12-21', '23:30:00.0000', 1, 3);
+(20, '2024-09-16', '12:55:00.0000', 3, 11),
+(21, '2026-09-22', '23:30:00.0000', 8, 12),
+(22, '2025-12-10', '23:43:11.0000', 3, 10),
+(23, '2026-09-22', '23:30:00.0000', 8, 10),
+(24, '2025-12-10', '23:43:11.0000', 7, 11),
+(25, '2026-09-22', '00:30:00.0000', 5, 12),
+(27, '2025-04-01', '00:00:00.0000', 1, 11),
+(28, '2024-10-31', '00:00:00.0000', 3, 11),
+(29, '2024-10-26', '19:00:00.0000', 8, 12),
+(30, '2024-10-25', '08:00:00.0000', 7, 10),
+(31, '2024-10-29', '23:30:00.0000', 7, 12),
+(32, '2025-02-01', '20:00:00.0000', 5, 11),
+(33, '2025-01-01', '14:00:00.0000', 5, 12),
+(34, '2025-03-31', '09:00:00.0000', 1, 11),
+(35, '2025-04-30', '22:00:00.0000', 1, 10);
 
 --
 -- Índices para tablas volcadas
@@ -121,19 +134,19 @@ ALTER TABLE `viajes`
 -- AUTO_INCREMENT de la tabla `destinos`
 --
 ALTER TABLE `destinos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `viajes`
 --
 ALTER TABLE `viajes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Restricciones para tablas volcadas
