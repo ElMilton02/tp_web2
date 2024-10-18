@@ -48,7 +48,7 @@ INSERT INTO `destinos` (`destino`, `id`, `imagen_destino`) VALUES
 
 CREATE TABLE `usuarios` (
   `nombre_usuario` varchar(30) DEFAULT NULL,
-  `clave_usuario` varchar(40) DEFAULT NULL,
+  `clave_usuario` varchar(255) DEFAULT NULL,
   `id` int(11) NOT NULL,
   `rol` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
