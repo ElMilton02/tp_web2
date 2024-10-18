@@ -20,7 +20,7 @@ class DestinoModel extends Model
 
     function deleteDestino($idDestino)
     {
-        $query = $this->db->prepare('DELETE FROM destinos WHERE id_destino = ?');
+        $query = $this->db->prepare('DELETE FROM destinos WHERE id = ?');
         $query->execute([$idDestino]);
     }
 
@@ -33,7 +33,7 @@ class DestinoModel extends Model
 
     public function getDestinoById($id)
     {
-        $query = $this->db->prepare('SELECT * FROM destinos WHERE id_destino = ?');
+        $query = $this->db->prepare('SELECT * FROM destinos WHERE id = ?');
         $query->execute([$id]);
 
         // Obtener la categoría como un objeto
