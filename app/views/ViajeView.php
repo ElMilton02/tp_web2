@@ -10,6 +10,6 @@ class ViajeView
 
     public function showEditViajeForm($idViajes, $error = null)
     {
-        require_once './templates/EditViajes.phtml';
+        require_once './templates/editViaje.phtml';
     }
 }

@@ -1,13 +1,13 @@
 <?php require_once './templates/header.phtml';
 ?>
-<form action="actualizarRopa /<?= $idClothes   ?>" method="POST" class="form-categoria">
+<form action="actualizarViaje /<?= $idViajes   ?>" method="POST" class="form-categoria">
 
     <div>
-        <label for="editarRopa/<?= $id  ?>">Prenda</label>
-        <input class="form-control form-control-sm" name="nuevoNombre" type="text" placeholder="NombreRopa">
+        <label for="editarViaje/<?= $id  ?>">Fecha</label>
+        <input class="form-control form-control-sm" name="nuevaFecha" type="text" placeholder="Fecha">
 
-        <label for="editarRopa/<?= $id  ?>">Autor</label>
-        <input class="form-control form-control-sm" name="nuevoPrecio" type="text" placeholder="Autor">
+        <label for="editarViaje/<?= $id  ?>">Hora</label>
+        <input class="form-control form-control-sm" name="nuevaHora" type="text" placeholder="Hora">
 
     </div>
     <?php if (isset($error)) : ?>
@@ -15,7 +15,7 @@
             <?= $error ?>
         </div>
     <?php endif; ?>
-    <button type="submit" class="btn btn-secondary">Actualizar Prenda</button>
+    <button type="submit" class="btn btn-secondary">Actualizar Viaje</button>
 </form>
 
 
