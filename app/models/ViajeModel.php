@@ -25,7 +25,7 @@ class viajeModel extends Model
     function insertViaje($fecha, $hora, $id_destinos)
     {  
         $query = $this->db->prepare('INSERT INTO viajes (fecha, hora, id_destinos) VALUES(?, ?, ?)');
-        $query->execute([$fecha, $id_destinos, $hora]);
+        $query->execute([$fecha, $hora, $id_destinos]);
     
         return $this->db->lastInsertId();
     }
