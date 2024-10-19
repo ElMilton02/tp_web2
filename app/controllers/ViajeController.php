@@ -25,10 +25,10 @@ class ViajeController
         $this->view->showViajesByDestinoId($listViajes, $destinoId);
     }
 
-    public function removeViajes($idDestino, $idViajes)
+    public function removeViajes($destinoId, $idViajes)
     {
         $this->model->deleteViaje($idViajes);
-        header('Location: ' . BASE_URL . 'viajesByDestino/' . $idDestino);
+        header('Location: ' . BASE_URL . 'viajesByDestino/' . $destinoId);
     }
 
     public function addViaje($destinoId)
