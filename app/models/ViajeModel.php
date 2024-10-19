@@ -22,17 +22,17 @@ class viajeModel extends Model
         $query->execute([$idViaje]);
     }
 
-    function insertViaje($fecha, $id_destino, $hora)
+    function insertViaje($fecha, $hora, $id_destinos)
     {  
-        $query = $this->db->prepare('INSERT INTO viajes (fecha, destino, hora) VALUES(?, ?, ?)');
-        $query->execute([$fecha, $id_destino, $hora]);
+        $query = $this->db->prepare('INSERT INTO viajes (fecha, hora, id_destinos) VALUES(?, ?, ?)');
+        $query->execute([$fecha, $id_destinos, $hora]);
     
         return $this->db->lastInsertId();
     }
 
     public function modifyViaje($newFecha, $newDestino, $newHora)
     {  
-        $query = $this->db->prepare('UPDATE viajes SET fecha = ?, id_destino = ?, hora = ? WHERE id = ?');
+        $query = $this->db->prepare('UPDATE viajes SET fecha = ?, id_destinos = ?, hora = ? WHERE id = ?');
         $query->execute([$newFecha, $newDestino, $newHora]);
     }
 }

@@ -1,10 +1,10 @@
-<form action="agregarViaje/<?= $DestinoId ?>" method="GET" class="form-categoria">
+<form action="agregarViaje/<?= $DestinoId ?>" method="POST" class="form-categoria">
     <div>
-        <label for="fehca">fecha</label>
-        <input class="form-control form-control-sm" name="fecha" type="text" placeholder="Fecha">
+        <label for="fecha_viaje">fecha</label>
+        <input class="form-control form-control-sm" name="fecha_viaje" type="date" placeholder="Fecha">
         <br>
-        <label for="hora">hora</label>
-        <input class="form-control form-control-sm" name="hora" type="text" placeholder="Hora">
+        <label for="hora_viaje">hora</label>
+        <input class="form-control form-control-sm" name="hora_viaje" type="time" placeholder="Hora">
        
     </div>
     <button type="submit" class="btn btn-secondary">Agregar viajes</button>

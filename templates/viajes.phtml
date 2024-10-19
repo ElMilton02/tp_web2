@@ -27,12 +27,13 @@ $hrefId = '';
             <tr class="justify-content-evently">
                 <td><?php echo $Viajes->fecha ?></td>
                 <td><?php echo $Viajes->hora ?></td>
+
                 <?php if ($rol === 1) {
                 ?>
                     <td class = "td-btn">
                         <a href="editarViaje/<?= $hrefId  ?>" type="button" class='btn btn-primary btn-sm btn-edit'>Editar</a>
 
-                        <a href="eliminarViaje/<?= $destinoeId ?>/<?= $Viajes->id ?>" type="button" class="btn btn-danger btn-sm">Eliminar</a>
+                        <a href="eliminarViaje/<?= $destinoId ?>/<?= $Viajes->id ?>" type="button" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 <?php } ?>
             </tr>

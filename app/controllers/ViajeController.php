@@ -33,17 +33,17 @@ class ViajeController
 
     public function addViaje($destinoId)
     {
-        $fecha_viaje = $_GET['fecha_viaje'];
-        $hora_viaje = $_GET['hora_viaje'];
-        $id_destino = $destinoId;
+        $fecha = $_POST['fecha_viaje'];
+        $hora = $_POST['hora_viaje'];
+        $id_destinos = $destinoId;
 
-        if (empty($id_destino) || empty($fecha_viaje) || empty($hora_viaje)) {
+        if (empty($fecha) || empty($hora) || empty($id_destinos)) {
 
 
-            var_dump($id_destino, $fecha_viaje, $hora_viaje);
+            var_dump($id_destinos, $fecha, $hora);
         } else {
-            $this->model->insertViaje($id_destino, $fecha_viaje, $hora_viaje);
-            header('Location: ' . BASE_URL . 'viajeByDestino/' . $id_destino);
+            $this->model->insertViaje($fecha, $hora, $id_destinos);
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $id_destinos);
         }
     }
 
