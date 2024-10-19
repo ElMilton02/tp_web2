@@ -22,10 +22,10 @@ class viajeModel extends Model
         $query->execute([$idViaje]);
     }
 
-    function insertViaje($fecha_viaje, $id_destino, $hora_viaje)
+    function insertViaje($fecha, $hora, $id_destinos)
     {  
-        $query = $this->db->prepare('INSERT INTO viajes (fecha, id_destinos, hora) VALUES(?, ?, ?)');
-        $query->execute([$fecha_viaje, $id_destino, $hora_viaje]);
+        $query = $this->db->prepare('INSERT INTO viajes (fecha, hora, id_destinos) VALUES(?, ?, ?)');
+        $query->execute([$fecha, $id_destinos, $hora]);
     
         return $this->db->lastInsertId();
     }
