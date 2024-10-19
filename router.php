@@ -40,7 +40,7 @@ switch ($params[0]) {
         $controller = new ViajeController();
         $controller->addViaje($params[1]);
         break;
-    case 'actualizarViaje ':
+    case 'actualizarViaje':
         $controller = new ViajeController();
         $controller->updateViajes($params[1]);
         break;

@@ -52,17 +52,16 @@ class ViajeController
         $this->view->showEditViajeForm($idViajes);
     }
 
-    public function updateViajes( $idViajes)
+    public function updateViajes($idViajes)
     {
         $newFecha = $_POST['nuevaFecha'];
-        $newHora =  $_POST['nuevaHora'];
-        $viajeid = $idViajes;
-       
+        $newHora = $_POST['nuevaHora'];
 
-        if (empty($newFecha) || empty($newHora )) {
-        } else {
-            $this->model->modifyViaje($viajeid, $newFecha, $newHora);
+        if (!empty($newFecha) && !empty($newHora)) {
+            $this->model->modifyViaje($newFecha, $newHora, $idViajes);  // Cambia el orden de los parámetros
             header('Location: ' . BASE_URL . 'viajes');
+        } else {
+      
         }
     }
 }
