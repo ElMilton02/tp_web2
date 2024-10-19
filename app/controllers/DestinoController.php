@@ -71,13 +71,15 @@ class DestinoController
     public function editDestino($id)
     {
         $destino = $this->model->getDestinoById($id);
-        $this->view->showEditDestinoForm($destino, $id);
+        $imagen_destino = $this->model->getDestinoById($id);
+        $this->view->showEditDestinoForm($destino, $id, $imagen_destino);
     }
 
 
     public function updateDestino($id)
     {
         $destino = $_GET['newDestino'];
+        $img = $_GET['newImg'];
 
         if (empty($destino) || empty($img)) {
 

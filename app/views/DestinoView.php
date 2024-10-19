@@ -9,7 +9,7 @@ class DestinoView
         return $href;
     }
 
-    public function showEditDestinoForm($destino, $id, $error = null)
+    public function showEditDestinoForm($destino, $id, $imagen_destino, $error = null)
     {
         require_once './templates/editDestino.phtml';
     }
