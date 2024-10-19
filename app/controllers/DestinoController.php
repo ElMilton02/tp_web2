@@ -53,11 +53,12 @@ class DestinoController
     public function addDestino()
     {
         $destino = $_GET['destino'];
-        if (empty($destino)) {
+        $img = $_GET['img'];
+        if (empty($destino)||empty($img)) {
             $controller = new ErrorController();
             $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
         } else {
-            $newDestino = $this->model->insertDestino($destino);
+            $newDestino = $this->model->insertDestino($destino, $img);
             if ($newDestino) {
                 header('Location: ' . BASE_URL . 'destinos');
             } else {
