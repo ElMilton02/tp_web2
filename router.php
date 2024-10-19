@@ -86,6 +86,6 @@ switch ($params[0]) {
         break;
     default:
         $controller = new ErrorController();
-        $controller->showError404($error);
+        $controller->showError404("pagina no encontrada");
         break;
 }

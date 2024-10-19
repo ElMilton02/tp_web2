@@ -44,7 +44,7 @@ class ErrorController
     }
   }
 
-  public function showError404($error)
+  public function showError404($error = null)
   {
     $view = new HomeView();
     $view->showHome($error);
