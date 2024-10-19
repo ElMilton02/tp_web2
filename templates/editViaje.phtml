@@ -3,11 +3,11 @@
 <form action="actualizarViaje/<?= $idViajes   ?>" method="POST" class="form-categoria">
 
     <div>
-        <label for="nuevaFecha">Fecha</label>
-        <input class="form-control form-control-sm" name="nuevaFecha" type="text" placeholder="Fecha">
+        <label for="editarViaje/<?= $id  ?>">Fecha</label>
+        <input class="form-control form-control-sm" name="nuevaFecha" type="date" placeholder="Fecha">
 
-        <label for="nuevaHora">Hora</label>
-        <input class="form-control form-control-sm" name="nuevaHora" type="text" placeholder="Hora">
+        <label for="editarViaje/<?= $id  ?>">Hora</label>
+        <input class="form-control form-control-sm" name="nuevaHora" type="time" placeholder="Hora">
 
     </div>
     <?php if (isset($error)) : ?>

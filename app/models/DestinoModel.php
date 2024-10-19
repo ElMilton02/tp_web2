@@ -43,9 +43,9 @@ class DestinoModel extends Model
     }
     
 
-    public function modifyDestino($id, $destino, $img)
+    public function modifyDestino($idDestino, $destino, $img)
     {
         $query = $this->db->prepare('UPDATE destinos SET destino = ?, imagen_destino = ? WHERE id = ?');
-        $query->execute([$id, $destino, $img]);
+        $query->execute([$destino, $img, $idDestino]);
     }
 }
