@@ -28,7 +28,7 @@ class ViajeController
     public function removeViajes($destinoId, $idViajes)
     {
         $this->model->deleteViaje($idViajes);
-        header('Location: ' . BASE_URL . 'viajesByDestino/' . $destinoId);
+        header('Location: ' . BASE_URL . 'destinos' );
     }
 
     public function addViaje($destinoId)
@@ -59,7 +59,7 @@ class ViajeController
 
         if (!empty($newFecha) && !empty($newHora)) {
             $this->model->modifyViaje($newFecha, $newHora, $idViajes);  // Cambia el orden de los parámetros
-            header('Location: ' . BASE_URL . 'viajes');
+            header('Location: ' . BASE_URL . 'destinos');
         } else {
       
         }
