@@ -86,7 +86,7 @@ class DestinoController
             $controller = new ErrorController();
             $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
         } else {
-            $this->model->modifyDestino($destino, $id, $img);
+            $this->model->modifyDestino($id, $destino,  $img);
             header('Location: ' . BASE_URL . 'destinos');
         }
     }

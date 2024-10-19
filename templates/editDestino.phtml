@@ -1,9 +1,12 @@
 <?php require_once './templates/header.phtml'; ?>
+
 <form action="actualizarDestino/<?= $id  ?>" method="GET" class="form-categoria">
 
     <div>
         <label for="editDestino/<?= $id  ?>">Editar destino</label>
         <input class="form-control form-control-sm" name="newDestino" type="text" value="<?php echo $destino->destino; ?>">
+
+        <label for="editDestino/<?= $id  ?>">Editar imagen</label>
         <input class="form-control form-control-sm" name="newImg" type="text" value="<?php echo $imagen_destino->imagen_destino; ?>">
 
     </div>

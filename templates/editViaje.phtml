@@ -4,10 +4,10 @@
 
     <div>
         <label for="editarViaje/<?= $id  ?>">Fecha</label>
-        <input class="form-control form-control-sm" name="nuevaFecha" type="text" placeholder="Fecha">
+        <input class="form-control form-control-sm" name="nuevaFecha" type="date" placeholder="Fecha">
 
         <label for="editarViaje/<?= $id  ?>">Hora</label>
-        <input class="form-control form-control-sm" name="nuevaHora" type="text" placeholder="Hora">
+        <input class="form-control form-control-sm" name="nuevaHora" type="time" placeholder="Hora">
 
     </div>
     <?php if (isset($error)) : ?>
