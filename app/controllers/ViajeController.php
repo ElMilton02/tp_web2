@@ -33,8 +33,8 @@ class ViajeController
 
     public function addViaje($destinoId)
     {
-        $fecha_viaje = $_GET['fecha_viaje'];
-        $hora_viaje = $_GET['hora_viaje'];
+        $fecha_viaje = $_GET['fecha'];
+        $hora_viaje = $_GET['hora'];
         $id_destino = $destinoId;
 
         if (empty($id_destino) || empty($fecha_viaje) || empty($hora_viaje)) {

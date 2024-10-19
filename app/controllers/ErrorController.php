@@ -30,7 +30,7 @@ class ErrorController
 
   public function showErrorDelete($error, $model)
   {
-    $destinos = $model->getDesinos();
+    $destinos = $model->getDestinos();
     $view = new DestinoView();
     $view->showDestinos($destinos, $error);
   }
