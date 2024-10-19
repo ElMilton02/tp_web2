@@ -4,18 +4,18 @@ require_once './templates/header.phtml';
 
 <div class="login">
 
-    <form method="POST" action="auth">
+    <form method="POST" action="auth" class="mb-3">
 
         <div>
-            <label>Usuario</label>
-            <input type="text" name="user" placeholder="Ingresar Usuario">
+            <label class="form-label">Usuario</label>
+            <input class="form-control" type="text" name="user" placeholder="Ingresar Usuario">
         </div>
-
+        <br>
         <div>
-            <label>Contraseña</label>
-            <input type="password" name="password" placeholder="Password">
+            <label class="form-label">Contraseña</label>
+            <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
-
+        <br>
         <?php if ($error) : ?>
             <div class='alert alert-danger' role='alert'>
                 <?= $error ?>
@@ -23,17 +23,11 @@ require_once './templates/header.phtml';
         <?php endif ?>
 
         <div>
-            <div class="uno">
-                <input type="checkbox">
-                <label> recuerdame </label>
-            </div>
-
     </form>
 
     <div class="dos">
-        <button type="submit">acceder</button>
-        <a href="singup">crear cuenta</a>
-        <a href="#">Olvido su contraseña?</a>
+        <button class="btn btn-primary mb-3" type="submit">acceder</button>
+        <a class="btn btn-primary mb-3" href="singup">crear cuenta</a>
     </div>
 </div>
 

@@ -1,14 +1,14 @@
 <?php require_once './templates/header.phtml'; ?>
-<div class="login">
+<div >
     <form action="registro" method="POST">
 
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" required><br><br>
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" required><br>
 
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasenia" name="password" required><br><br>
+        <label for="contrasena" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="contrasenia" name="password" required><br>
 
-        <input type="submit" value="Registrarme">
+        <input type="submit" class="btn btn-primary mb-3" value="Registrarme">
 
     </form>
 </div>
