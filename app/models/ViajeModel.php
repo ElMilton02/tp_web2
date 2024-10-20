@@ -16,6 +16,13 @@ class viajeModel extends Model
         return $viajes;
     }
 
+    public function getViajeById($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM viajes WHERE id = ?');
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
     function deleteViaje($idViaje)
     {
         $query = $this->db->prepare('DELETE FROM viajes WHERE id = ?');

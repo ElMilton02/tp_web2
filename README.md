@@ -8,7 +8,9 @@ Este proyecto es un sitio web para programar viajes en avión. La aplicación pe
 
 1.Bombace, Gastón
 
+
+
 2.Palucci, Milton
 
 ## DER
-![diagrama_bd](https://github.com/user-attachments/assets/104901d7-afdc-425d-a257-ca09477f6650)
+![diagrama DER](https://github.com/user-attachments/assets/32ad6b38-1f8b-42cd-9469-1d449e09431b)

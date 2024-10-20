@@ -10,6 +10,7 @@ class ViajeController
 {
     private $model;
     private $view;
+    private $destinoModel;
 
     public function __construct()
     {
@@ -17,18 +18,20 @@ class ViajeController
 
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
+        $this->destinoModel = new DestinoModel();
     }
 
     public function showViajesByDestinoId($destinoId)
     {
         $listViajes = $this->model->getViajesByDestino($destinoId);
-        $this->view->showViajesByDestinoId($listViajes, $destinoId);
+        $nombreDestino = $this->destinoModel->getDestinoById($destinoId)->destino;
+        $this->view->showViajesByDestinoId($listViajes, $destinoId, $nombreDestino);
     }
 
-    public function removeViajes($destinoId, $idViajes)
+    public function removeViajes($idDestino, $idViajes)
     {
         $this->model->deleteViaje($idViajes);
-        header('Location: ' . BASE_URL . 'destinos' );
+        header('Location: ' . BASE_URL . 'viajesByDestino/' . $idDestino);
     }
 
     public function addViaje($destinoId)
@@ -52,16 +55,25 @@ class ViajeController
         $this->view->showEditViajeForm($idViajes);
     }
 
-    public function updateViajes($idViajes)
+    public function updateViajes( $idViajes)
     {
         $newFecha = $_POST['nuevaFecha'];
-        $newHora = $_POST['nuevaHora'];
+        $newHora =  $_POST['nuevaHora'];
+        $viajeid = $idViajes;
+       
 
-        if (!empty($newFecha) && !empty($newHora)) {
-            $this->model->modifyViaje($newFecha, $newHora, $idViajes);  // Cambia el orden de los parámetros
-            header('Location: ' . BASE_URL . 'destinos');
+        if (empty($newFecha) || empty($newHora )) {
         } else {
-      
+            $this->model->modifyViaje($newFecha, $newHora, $idViajes);
+        
+            // Obtener el viaje actualizado
+            $viaje = $this->model->getViajeById($idViajes);
+            
+            // Obtener el ID del destino del viaje
+            $destinoId = $viaje->id_destinos;
+            
+            // Redirigir a la página de viajes del destino específico
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $destinoId);
         }
     }
 }
