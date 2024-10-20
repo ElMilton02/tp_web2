@@ -29,10 +29,14 @@ class ViajeController
     }
 
     public function removeViajes($idDestino, $idViajes)
-    {
+{
+    // Verificar si el viaje existe y pertenece al destino correcto
+    $viaje = $this->model->getViajeById($idViajes);
+    if ($viaje && $viaje->id_destinos == $idDestino) {
         $this->model->deleteViaje($idViajes);
-        header('Location: ' . BASE_URL . 'viajesByDestino/' . $idDestino);
+        header('Location: ' . BASE_URL . 'viajeByDestino/' . $idDestino);
     }
+}
 
     public function addViaje($destinoId)
     {
