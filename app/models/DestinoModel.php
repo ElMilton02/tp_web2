@@ -24,10 +24,10 @@ class DestinoModel extends Model
         $query->execute([$idDestino]);
     }
 
-    function insertDestino($destino)
+    function insertDestino($destino, $img)
     {
-        $query = $this->db->prepare('INSERT INTO destinos (destino) VALUES(?)');
-        $query->execute([$destino]);
+        $query = $this->db->prepare('INSERT INTO destinos (destino, imagen_destino) VALUES(?, ?)');
+        $query->execute([$destino, $img]);
         return $this->db->lastInsertId();
     }
 
