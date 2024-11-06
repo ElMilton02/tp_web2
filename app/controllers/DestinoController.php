@@ -52,8 +52,8 @@ class DestinoController
     //añade un nuevo destino
     public function addDestino()
     {
-        $destino = $_GET['destino'];
-        $img = $_GET['img'];
+        $destino = $_POST['destino'];
+        $img = $_POST['img'];
         if (empty($destino)||empty($img)) {
             $controller = new ErrorController();
             $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
@@ -79,8 +79,8 @@ class DestinoController
 
     public function updateDestino($id)
     {
-        $destino = $_GET['newDestino'];
-        $img = $_GET['newImg'];
+        $destino = $_POST['newDestino'];
+        $img = $_POST['newImg'];
 
         if (empty($destino) || empty($img)) {
 

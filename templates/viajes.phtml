@@ -13,7 +13,7 @@ $hrefId = '';
 
             <th class="col-sm-4">Hora</th>
 
-            <?php if ($rol === 1) {
+            <?php if ($rol == 1) {
             ?>
                 <th class="col-sm-4">Acciones</th>
             <?php } ?>
@@ -28,7 +28,7 @@ $hrefId = '';
                 <td><?php echo $Viajes->fecha ?></td>
                 <td><?php echo $Viajes->hora ?></td>
 
-                <?php if ($rol === 1) {
+                <?php if ($rol == 1) {
                 ?>
                     <td class = "td-btn">
                         <a href="editarViaje/<?= $hrefId  ?>" type="button" class='btn btn-primary btn-sm btn-edit'>Editar</a>
@@ -43,7 +43,7 @@ $hrefId = '';
 </table>
 
 <?php
-if ($rol === 1) {
+if ($rol == 1) {
     require_once './templates/addViajes.phtml';
 }
 ?>

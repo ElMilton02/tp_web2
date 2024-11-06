@@ -8,7 +8,7 @@ $rolUser = '';
     <thead>
         <tr class="justify-content-evently">
             <th cass="col-sm-4">Destinos</th>
-            <?php if ($rol === 1) { ?>
+            <?php if ($rol == 1) { ?>
                 <th class="col-sm-4">Acciones</th>
             <?php } ?>
         </tr>
@@ -21,7 +21,7 @@ $rolUser = '';
                 <td>
                     <a href="viajeByDestino/<?php echo $href ?>"> <?php echo $destino->destino ?> </a>
                 </td>
-                <?php if ($rol === 1) {
+                <?php if ($rol == 1) {
                 ?>
                     <td>
                         <a href="editDestino/<?= $href  ?>" type="button" class='btn btn-primary btn-sm btn-edit'>Editar</a>
@@ -39,7 +39,7 @@ if (isset($error)) : ?>
         <?= $error ?>
     </div>
 <?php endif;
-if ($rol === 1) :
+if ($rol == 1) :
     require_once 'templates/formDestino.phtml';
 endif;
 
