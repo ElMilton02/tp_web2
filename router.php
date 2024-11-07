@@ -19,12 +19,7 @@ if (!empty($_GET['action'])) {
 
 $params = explode('/', $action);
 
-function checkAdmin() {
-    return isset($_SESSION['USER_ID']) && isset($_SESSION['USER_ROL']) && $_SESSION['USER_ROL'] == 1;
-}
-
 switch ($params[0]) { 
-    // Rutas públicas accesibles sin autenticación
     case 'home':
         $controller = new HomeController();
         $controller->showHome();
@@ -54,80 +49,41 @@ switch ($params[0]) {
         $controller->auth();
         break;
     case 'logOut': 
-        if (isset($_SESSION['USER_ID'])) {
-            $controller = new AuthController();
-            $controller->logOut();
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new AuthController();
+        $controller->logOut();
         break;
-
-    // Rutas que requieren autenticación como administrador
     case 'eliminarViaje':
-        if (checkAdmin()) {
-            $controller = new ViajeController();
-            $controller->removeViajes($params[1], $params[2]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new ViajeController();
+        $controller->removeViajes($params[1], $params[2]);
         break;
     case 'agregarViaje':
-        if (checkAdmin()) {
-            $controller = new ViajeController();
-            $controller->addViaje($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new ViajeController();
+        $controller->addViaje($params[1]);
         break;
     case 'actualizarViaje':
-        if (checkAdmin()) {
-            $controller = new ViajeController();
-            $controller->updateViajes($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new ViajeController();
+        $controller->updateViajes($params[1]);
         break;
     case 'editarViaje':
-        if (checkAdmin()) {
-            $controller = new ViajeController();
-            $controller->editViajes($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new ViajeController();
+        $controller->editViajes($params[1]);
         break;
     case 'eliminarDestino':
-        if (checkAdmin()) {
-            $controller = new DestinoController();
-            $controller->removeDestino($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new DestinoController();
+        $controller->removeDestino($params[1]);
         break;
     case 'agregarDestino':
-        if (checkAdmin()) {
-            $controller = new DestinoController();
-            $controller->addDestino();
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new DestinoController();
+        $controller->addDestino();
         break;
     case 'actualizarDestino':
-        if (checkAdmin()) {
-            $controller = new DestinoController();
-            $controller->updateDestino($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new DestinoController();
+        $controller->updateDestino($params[1]);
         break;
     case 'editDestino':
-        if (checkAdmin()) {
-            $controller = new DestinoController();
-            $controller->editDestino($params[1]);
-        } else {
-            header('Location: ' . BASE_URL . 'login');
-        }
+        $controller = new DestinoController();
+        $controller->editDestino($params[1]);
         break;
-
     default:
         $controller = new ErrorController();
         $controller->showError404("pagina no encontrada");

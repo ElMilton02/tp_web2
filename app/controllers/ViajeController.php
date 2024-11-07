@@ -14,8 +14,6 @@ class ViajeController
 
     public function __construct()
     {
-        AuthHelper::verify();
-
         $this->model = new ViajeModel();
         $this->view = new ViajeView();
         $this->destinoModel = new DestinoModel();
@@ -29,17 +27,19 @@ class ViajeController
     }
 
     public function removeViajes($idDestino, $idViajes)
-{
-    // Verificar si el viaje existe y pertenece al destino correcto
-    $viaje = $this->model->getViajeById($idViajes);
-    if ($viaje && $viaje->id_destinos == $idDestino) {
-        $this->model->deleteViaje($idViajes);
-        header('Location: ' . BASE_URL . 'viajeByDestino/' . $idDestino);
+    {
+        AuthHelper::verify();
+        // Verificar si el viaje existe y pertenece al destino correcto
+        $viaje = $this->model->getViajeById($idViajes);
+        if ($viaje && $viaje->id_destinos == $idDestino) {
+            $this->model->deleteViaje($idViajes);
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $idDestino);
+        }
     }
-}
 
     public function addViaje($destinoId)
     {
+        AuthHelper::verify();
         $fecha = $_POST['fecha_viaje'];
         $hora = $_POST['hora_viaje'];
         $id_destinos = $destinoId;
@@ -61,11 +61,10 @@ class ViajeController
 
     public function updateViajes( $idViajes)
     {
+        AuthHelper::verify();
         $newFecha = $_POST['nuevaFecha'];
         $newHora =  $_POST['nuevaHora'];
-        $viajeid = $idViajes;
        
-
         if (empty($newFecha) || empty($newHora )) {
         } else {
             $this->model->modifyViaje($newFecha, $newHora, $idViajes);

@@ -15,9 +15,6 @@ class DestinoController
     //verifia la autenticacion del usuario 
     public function __construct()
     {
-
-        AuthHelper::verify();
-
         $this->model = new DestinoModel();
         $this->view = new DestinoView();
     }
@@ -32,7 +29,8 @@ class DestinoController
 
     //elimina un destino
     public function removeDestino($id)
-    {
+    {  
+         AuthHelper::verify();
         if (empty($id)) {
             header('Location: ' . BASE_URL . 'destinos');
         } else {
@@ -52,8 +50,9 @@ class DestinoController
     //añade un nuevo destino
     public function addDestino()
     {
-        $destino = $_POST['destino'];
-        $img = $_POST['img'];
+        AuthHelper::verify();
+        $destino = $_GET['destino'];
+        $img = $_GET['img'];
         if (empty($destino)||empty($img)) {
             $controller = new ErrorController();
             $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
@@ -71,6 +70,7 @@ class DestinoController
 
     public function editDestino($id)
     {
+        AuthHelper::verify();
         $destino = $this->model->getDestinoById($id);
         $imagen_destino = $this->model->getDestinoById($id);
         $this->view->showEditDestinoForm($destino, $id, $imagen_destino);
@@ -79,8 +79,9 @@ class DestinoController
 
     public function updateDestino($id)
     {
-        $destino = $_POST['newDestino'];
-        $img = $_POST['newImg'];
+        AuthHelper::verify();
+        $destino = $_GET['newDestino'];
+        $img = $_GET['newImg'];
 
         if (empty($destino) || empty($img)) {
 
