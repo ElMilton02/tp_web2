@@ -28,55 +28,68 @@ class ViajeController
 
     public function removeViajes($idDestino, $idViajes)
     {
-        AuthHelper::verify();
-        // Verificar si el viaje existe y pertenece al destino correcto
+        AuthHelper::verifyAdmin();
         $viaje = $this->model->getViajeById($idViajes);
-        if ($viaje && $viaje->id_destinos == $idDestino) {
+        if (!$viaje) {
+            $controller = new ErrorController();
+            $controller->showError404("Viaje no encontrado");
+            return;
+        }
+        if ($viaje->id_destinos == $idDestino) {
             $this->model->deleteViaje($idViajes);
             header('Location: ' . BASE_URL . 'viajeByDestino/' . $idDestino);
+        } else {
+            $controller = new ErrorController();
+            $controller->showError404("El viaje no pertenece al destino especificado");
         }
     }
 
     public function addViaje($destinoId)
     {
-        AuthHelper::verify();
+        AuthHelper::verifyAdmin();
         $fecha = $_POST['fecha_viaje'];
         $hora = $_POST['hora_viaje'];
-        $id_destinos = $destinoId;
 
-        if (empty($fecha) || empty($hora) || empty($id_destinos)) {
-
-
-            var_dump($id_destinos, $fecha, $hora);
+        if (empty($fecha) || empty($hora) || empty($destinoId)) {
+            $controller = new ErrorController();
+            $controller->showErrorNonDataViajes("Datos incompletos", $this->model, $destinoId);
         } else {
-            $this->model->insertViaje($fecha, $hora, $id_destinos);
-            header('Location: ' . BASE_URL . 'viajeByDestino/' . $id_destinos);
+            $this->model->insertViaje($fecha, $hora, $destinoId);
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $destinoId);
         }
     }
 
     public function  editViajes($idViajes)
     {
+        AuthHelper::verifyAdmin();
+        $viaje = $this->model->getViajeById($idViajes);
+        if (!$viaje) {
+            $controller = new ErrorController();
+            $controller->showError404("Viaje no encontrado");
+            return;
+        }
         $this->view->showEditViajeForm($idViajes);
     }
 
     public function updateViajes( $idViajes)
     {
-        AuthHelper::verify();
+        AuthHelper::verifyAdmin();
+        $viaje = $this->model->getViajeById($idViajes);
+        if (!$viaje) {
+            $controller = new ErrorController();
+            $controller->showError404("Viaje no encontrado");
+            return;
+        }
+
         $newFecha = $_POST['nuevaFecha'];
-        $newHora =  $_POST['nuevaHora'];
+        $newHora = $_POST['nuevaHora'];
        
-        if (empty($newFecha) || empty($newHora )) {
+        if (empty($newFecha) || empty($newHora)) {
+            $controller = new ErrorController();
+            $controller->showErrorNonDataViajes("Datos incompletos", $this->model, $viaje->id_destinos);
         } else {
             $this->model->modifyViaje($newFecha, $newHora, $idViajes);
-        
-            // Obtener el viaje actualizado
-            $viaje = $this->model->getViajeById($idViajes);
-            
-            // Obtener el ID del destino del viaje
-            $destinoId = $viaje->id_destinos;
-            
-            // Redirigir a la página de viajes del destino específico
-            header('Location: ' . BASE_URL . 'viajeByDestino/' . $destinoId);
+            header('Location: ' . BASE_URL . 'viajeByDestino/' . $viaje->id_destinos);
         }
     }
 }
