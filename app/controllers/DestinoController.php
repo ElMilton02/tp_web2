@@ -49,8 +49,8 @@ class DestinoController
     public function addDestino()
     {
         AuthHelper::verifyAdmin();
-        $destino = $_GET['destino'];
-        $img = $_GET['img'];
+        $destino = $_POST['destino'];
+        $img = $_POST['img'];
         if (empty($destino)||empty($img)) {
             $controller = new ErrorController();
             $controller->showErrorNonDataDestino('Datos Vacios',  $this->model);
